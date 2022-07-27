@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Wants</h1>
+
+<div id="wants">
+  <% @wants.each do |want| %>
+    <%= render want %>
+    <p>
+      <%= link_to "Show this want", want %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New want", new_want_path %>

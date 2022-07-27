@@ -1,0 +1,35 @@
+<%= form_with(model: want) do |form| %>
+  <% if want.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(want.errors.count, "error") %> prohibited this want from being saved:</h2>
+
+      <ul>
+        <% want.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :descrition, style: "display: block" %>
+    <%= form.text_field :descrition %>
+  </div>
+
+  <div class="field form-group text-center mb-3">
+    <%= form.file_field :image, class:"form-control mb-4", placeholder:"Choose an image" %>
+  </div>
+
+  <div class="field form-group mb-3">
+    <%= form.number_field :user_id, value:current_user.id, type: :hidden%>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
