@@ -1,0 +1,19 @@
+<div class="container">
+    <% if !user_signed_in? %>
+        <div class="row justify-content-start">
+            <div class="col">
+                <h1>Current Users:</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <% @users.each do |user| %>
+                <div class="col-md-auto">
+                    <%= user.first_name %> 
+                </div>
+            <% end %>       
+        </div>
+    <% else %>
+        <%= render 'request_board' %>
+    <% end %>
+</div>
